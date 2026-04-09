@@ -1,0 +1,31 @@
+logs/
+*.log
+
+### React / Node.js ###
+front/node_modules/
+front/build/
+front/dist/
+front/.env
+front/npm-debug.log*
+front/yarn-error.log*
+
+### Java / Spring Boot / Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+.DS_Store
+Thumbs.db

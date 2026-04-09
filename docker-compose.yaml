@@ -1,0 +1,22 @@
+services:
+  card-transfer-rest:
+    image: card-transfer-rest:latest
+    build: .
+    restart: "no"
+    ports:
+      - "5500:5500"
+    volumes:
+      - ./logs:/app/logs
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5500/actuator/health || exit 1
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 5
+
+  card-transfer-master:
+    build: ./front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - card-transfer-rest
